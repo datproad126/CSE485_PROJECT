@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { DefaultLayoutComponent } from './default-layout/default-layout.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { IntroduceComponent } from './introduce/introduce.component';
-// import { IntroduceComponent } from './introduce/introduce.component';
 
 
 const routes: Routes = [
@@ -19,26 +18,20 @@ const routes: Routes = [
       title: 'home'
     }
   },
-  // {
-  //   path: 'default',
-  //   component: DefaultLayoutComponent,
-  //   data: {
-  //     title: 'default'
-  //   },
-  //   children: [
-  //     {
-  //       path: 'introduce',
-  //       loadChildren: () => import ('./introduce/introduce.component').then(m => m.IntroduceComponent)
-  //     }
-  //   ]
-  // }
   {
-    path: 'introduce',
-    component: IntroduceComponent,
+    path: '',
+    component: DefaultLayoutComponent,
     data: {
       title: 'default'
-    }
+    },
+    children: [
+      {
+        path: 'introduce',
+        component: IntroduceComponent
+      }
+    ]
   }
+  // { path: '**', component: P404Component }
 ];
 
 @NgModule({
